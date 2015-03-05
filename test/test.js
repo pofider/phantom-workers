@@ -46,7 +46,9 @@ describe("phantom workers", function () {
             numberOfWorkers: 1,
             timeout: 10
         });
+        var emited = false;
         phantomManager.on("timeout", function (workerInstance) {
+            emited = true;
             done();
         });
         phantomManager.start(function (err) {
@@ -60,8 +62,9 @@ describe("phantom workers", function () {
         });
 
         setTimeout(function () {
-            done(new Error("worker was not recycled"));
-        }, 1000);
+            if (!emited)
+                done(new Error("worker was not recycled"));
+        }, 1500);
     });
 
     it("timeout should cb error", function (done) {
