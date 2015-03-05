@@ -17,6 +17,7 @@
     "url": "git@github.com:pofider/phantom-workers.git"
   },
   "dependencies": {
+    "net-cluster": "0.0.2",
     "phantomjs": "1.9.15",
     "underscore": "1.8.2"
   },
