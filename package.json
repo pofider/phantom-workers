@@ -11,10 +11,10 @@
     "phantomjs",
     "workers"
   ],
-  "homepage": "https://github.com/jsreport/jsreport",
+  "homepage": "https://github.com/pofider/phantom-workers",
   "repository": {
     "type": "git",
-    "url": "git@github.com:jsreport/jsreport.git"
+    "url": "git@github.com:pofider/phantom-workers.git"
   },
   "dependencies": {
     "underscore": "1.8.2"
@@ -24,7 +24,7 @@
     "should": "5.0.1"
   },
   "scripts": {
-    "test": "mocha test/foo.js"
+    "test": "mocha test/test.js"
   },
   "main": "index.js",
   "licence": "MIT"
