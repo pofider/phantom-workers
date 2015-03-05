@@ -61,7 +61,7 @@ describe("phantom workers", function () {
 
         setTimeout(function () {
             done(new Error("worker was not recycled"));
-        }, 500);
+        }, 1000);
     });
 
     it("timeout should cb error", function (done) {
