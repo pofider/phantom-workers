@@ -36,8 +36,10 @@ var phantom = require("phantom-workers")({
 	numberOfWorkers: 10
 });
 
-phantom.excute({ url: "http://jsreport.net", function(err, res) {
-	console.log(res.title);
+phantom.start(function() {
+	phantom.excute({ url: "http://jsreport.net", function(err, res) {
+		console.log(res.title);
+	});
 });
 ```
 
