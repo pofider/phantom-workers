@@ -1,0 +1,32 @@
+{
+  "name": "phantom-workers",
+  "version": "0.1.0",
+  "author": {
+    "name": "Jan Blaha",
+    "email": "jan.blaha@hotmail.com"
+  },
+  "contributors": [],
+  "description": "Run phantomjs scripts in managed workers",
+  "keywords": [
+    "phantomjs",
+    "workers"
+  ],
+  "homepage": "https://github.com/jsreport/jsreport",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:jsreport/jsreport.git"
+  },
+  "dependencies": {
+    "q": "1.2.0",
+    "underscore": "1.8.2"
+  },
+  "devDependencies": {
+    "mocha": "2.1.0",
+    "should": "5.0.1"
+  },
+  "scripts": {
+    "test": "mocha test/foo.js"
+  },
+  "main": "index.js",
+  "licence": "MIT"
+}
