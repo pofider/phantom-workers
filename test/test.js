@@ -26,6 +26,25 @@ describe("phantom workers", function () {
         });
     });
 
+    it("should be able to send just a simple string on input", function (done) {
+        phantomManager = new PhantomManager({
+            pathToPhantomScript: path.join(__dirname, "test-script", "script.js"),
+            numberOfWorkers: 1
+        });
+        phantomManager.start(function(err) {
+            if (err)
+                return done(err);
+
+            phantomManager.execute("test", function (err, res) {
+                if (err)
+                    return done(err);
+
+                res.should.be.eql("test");
+                done();
+            });
+        });
+    });
+
     it("should spin up specified number of workers", function (done) {
         phantomManager = new PhantomManager({
             pathToPhantomScript: path.join(__dirname, "test-script", "script.js"),
