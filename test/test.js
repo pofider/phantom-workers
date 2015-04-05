@@ -6,6 +6,25 @@ describe("phantom workers", function () {
 
     var phantomManager;
 
+    it("should be able to communicate with slowly starting phantom", function (done) {
+        this.timeout(4000);
+        phantomManager = new PhantomManager({
+            pathToPhantomScript: path.join(__dirname, "test-script", "slowstart.js"),
+            numberOfWorkers: 1
+        });
+        phantomManager.start(function(err) {
+            if (err)
+                return done(err);
+
+            phantomManager.execute({foo: "test"}, function (err, res) {
+                if (err)
+                    return done(err);
+
+                done();
+            });
+        });
+    });
+
     it("should be able to communicate with phantom", function (done) {
         phantomManager = new PhantomManager({
             pathToPhantomScript: path.join(__dirname, "test-script", "script.js"),
