@@ -1,6 +1,6 @@
 #phantom-workers
 [![NPM Version](http://img.shields.io/npm/v/phantom-workers.svg?style=flat-square)](https://npmjs.com/package/phantom-workers)
-[![License](http://img.shields.io/npm/l/phantom-workers?style=flat-square)](http://opensource.org/licenses/MIT)
+[![License](http://img.shields.io/npm/l/phantom-workers?style=flat-square.svg)](http://opensource.org/licenses/MIT)
 [![Build Status](https://travis-ci.org/pofider/phantom-workers.png?branch=master)](https://travis-ci.org/pofider/phantom-workers)
 
 > **Run phantom scripts in multiple  managed reusable workers**
