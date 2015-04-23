@@ -109,7 +109,7 @@ describe("phantom workers", function () {
         phantomManager = new PhantomManager({
             pathToPhantomScript: path.join(__dirname, "test-script", "timeout.js"),
             numberOfWorkers: 1,
-            timeout: 10
+            timeout: 100
         });
 
         phantomManager.start(function (err) {
