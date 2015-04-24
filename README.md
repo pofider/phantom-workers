@@ -12,9 +12,9 @@ Running a script in phantom can soon become performance bottleneck when it comes
 
 ```js
 //every worker gets unique port, get it from a readline
-var hostAndPort = require("system").stdin.readLine();
+var port = require("system").stdin.readLine();
 
-require('webserver').create().listen(hostAndPort, function (req, res) {
+require('webserver').create().listen('127.0.0.1:' + port, function (req, res) {
 	//standard phantomjs script which get input parametrs from request
 	var page = require('webpage').create();
 	page.open(JSON.parse(req.post).url, function(status) {

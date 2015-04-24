@@ -61,6 +61,25 @@ describe("phantom workers", function () {
         });
     });
 
+    it("should be able to communicate with just-port script", function (done) {
+        phantomManager = new PhantomManager({
+            pathToPhantomScript: path.join(__dirname, "test-script", "just-port.js"),
+            numberOfWorkers: 1
+        });
+        phantomManager.start(function(err) {
+            if (err)
+                return done(err);
+
+            phantomManager.execute({foo: "test"}, function (err, res) {
+                if (err)
+                    return done(err);
+
+                res.should.have.property("foo");
+                done();
+            });
+        });
+    });
+
     it("should be able to send just a simple string on input", function (done) {
         phantomManager = new PhantomManager({
             pathToPhantomScript: path.join(__dirname, "test-script", "script.js"),

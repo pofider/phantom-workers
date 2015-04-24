@@ -1,5 +1,6 @@
-var hostAndPort = require("system").stdin.readLine();
+var port = require("system").stdin.readLine();
+var host = require("system").stdin.readLine();
 
-require('webserver').create().listen(hostAndPort, function (req, res) {
+require('webserver').create().listen(host + ':' + port, function (req, res) {
 
 });
