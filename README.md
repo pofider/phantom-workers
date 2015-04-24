@@ -51,8 +51,8 @@ phantom.start(function() {
 `timeout` - execution timeout in ms
 `numberOfWorkers` - number of phantomjs instances
 `host` - ip or hostname where to start listening phantomjs web service, default 127.0.0.1
-`portLeftBoundary` - default 1000
-`portRightBoundary` - default 3000
+`portLeftBoundary` - don't specify if you just want to take any random free port
+`portRightBoundary` - don't specify if you just want to take any random free port
 
 
 ##License
