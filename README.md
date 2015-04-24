@@ -12,9 +12,9 @@ Running a script in phantom can soon become performance bottleneck when it comes
 
 ```js
 //every worker gets unique port, get it from a readline
-var port = require("system").stdin.readLine();
+var hostAndPort = require("system").stdin.readLine();
 
-require('webserver').create().listen('127.0.0.1:' + port, function (req, res) {       
+require('webserver').create().listen(hostAndPort, function (req, res) {
 	//standard phantomjs script which get input parametrs from request
 	var page = require('webpage').create();
 	page.open(JSON.parse(req.post).url, function(status) {
@@ -44,6 +44,16 @@ phantom.start(function() {
 	});
 });
 ```
+
+##Options
+
+`pathToPhantomScript` (required) - absolute path to the phantom script
+`timeout` - execution timeout in ms
+`numberOfWorkers` - number of phantomjs instances
+`host` - ip or hostname where to start listening phantomjs web service, default 127.0.0.1
+`portLeftBoundary` - don't specify if you just want to take any random free port
+`portRightBoundary` - don't specify if you just want to take any random free port
+
 
 ##License
 See [license](https://github.com/pofider/phantom-workers/blob/master/LICENSE)

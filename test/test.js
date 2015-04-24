@@ -45,6 +45,22 @@ describe("phantom workers", function () {
         });
     });
 
+    it("should be able to start phantom in a port range", function (done) {
+        phantomManager = new PhantomManager({
+            pathToPhantomScript: path.join(__dirname, "test-script", "script.js"),
+            numberOfWorkers: 1,
+            portLeftBoundary: 10000,
+            portRightBoundary: 11000
+        });
+        phantomManager.start(function(err) {
+            if (err)
+                return done(err);
+
+            phantomManager._phantomInstances[0].port.should.be.within(10000,11000);
+            done();
+        });
+    });
+
     it("should be able to send just a simple string on input", function (done) {
         phantomManager = new PhantomManager({
             pathToPhantomScript: path.join(__dirname, "test-script", "script.js"),
@@ -109,7 +125,7 @@ describe("phantom workers", function () {
         phantomManager = new PhantomManager({
             pathToPhantomScript: path.join(__dirname, "test-script", "timeout.js"),
             numberOfWorkers: 1,
-            timeout: 10
+            timeout: 100
         });
 
         phantomManager.start(function (err) {

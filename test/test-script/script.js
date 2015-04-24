@@ -1,6 +1,6 @@
-var port = require("system").stdin.readLine();
+var hostAndPort = require("system").stdin.readLine();
 
-require('webserver').create().listen('127.0.0.1:' + port, function (req, res) {
+require('webserver').create().listen(hostAndPort, function (req, res) {
     try {
         res.statusCode = 200;
         res.write(req.post);
