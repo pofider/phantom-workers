@@ -99,6 +99,26 @@ describe("phantom workers", function () {
         });
     });
 
+    it("simple input string should not be stringified what is causing broked line endings", function (done) {
+        phantomManager = new PhantomManager({
+            pathToPhantomScript: path.join(__dirname, "test-script", "script.js"),
+            numberOfWorkers: 1
+        });
+        phantomManager.start(function(err) {
+            if (err)
+                return done(err);
+
+            phantomManager.execute("<style> td { \n background-color: red \n } </style>", function (err, res) {
+                if (err)
+                    return done(err);
+
+                console.log(res);
+                res.should.be.eql("<style> td { \n background-color: red \n } </style>");
+                done();
+            });
+        });
+    });
+
     it("should spin up specified number of workers", function (done) {
         phantomManager = new PhantomManager({
             pathToPhantomScript: path.join(__dirname, "test-script", "script.js"),
