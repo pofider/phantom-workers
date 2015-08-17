@@ -39,7 +39,7 @@ var phantom = require("phantom-workers")({
 });
 
 phantom.start(function() {
-	phantom.excute({ url: "http://jsreport.net", function(err, res) {
+	phantom.execute({ url: "http://jsreport.net", function(err, res) {
 		console.log(res.title);
 	});
 });
