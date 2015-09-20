@@ -1,4 +1,4 @@
-var port = require("system").stdin.readLine();
+var port = require("system").env['PHANTOM_WORKER_PORT'];
 
 require('webserver').create().listen('127.0.0.1:' + port, function (req, res) {
     try {
