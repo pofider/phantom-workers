@@ -12,7 +12,7 @@ Running a script in phantom can soon become performance bottleneck when it comes
 
 ```js
 //every worker gets unique port, get it from a readline
-var port = require("system").stdin.readLine();
+var port = require("system").env['PHANTOM_WORKER_PORT'];
 
 require('webserver').create().listen('127.0.0.1:' + port, function (req, res) {
 	//standard phantomjs script which get input parametrs from request
@@ -53,6 +53,9 @@ phantom.start(function() {
 `host` - ip or hostname where to start listening phantomjs web service, default 127.0.0.1    
 `portLeftBoundary` - don't specify if you just want to take any random free port    
 `portRightBoundary` - don't specify if you just want to take any random free port
+`hostEnvVarName` - customize the name of the environment variable passed to the phantom script that specifies the worker host. defaults to `PHANTOM_WORKER_HOST`
+`portEnvVarName` - customize the name of the environment variable passed to the phantom script that specifies the worker port. defaults to `PHANTOM_WORKER_PORT`
+
 
 
 ##License
