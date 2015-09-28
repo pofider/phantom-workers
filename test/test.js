@@ -7,7 +7,7 @@ describe("phantom workers", function () {
     var phantomManager;
 
     it("should be able to communicate with slowly starting phantom", function (done) {
-        this.timeout(4000);
+        this.timeout(5000);
         phantomManager = new PhantomManager({
             pathToPhantomScript: path.join(__dirname, "test-script", "slowstart.js"),
             numberOfWorkers: 1
