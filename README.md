@@ -49,13 +49,13 @@ phantom.start(function() {
 
 ##Options
 
-`pathToPhantomScript` (required) - absolute path to the phantom script    
-`timeout` - execution timeout in ms    
-`numberOfWorkers` - number of phantomjs instances    
-`host` - ip or hostname where to start listening phantomjs web service, default 127.0.0.1    
-`portLeftBoundary` - don't specify if you just want to take any random free port
-`portRightBoundary` - don't specify if you just want to take any random free port
-`hostEnvVarName` - customize the name of the environment variable passed to the phantom script that specifies the worker host. defaults to `PHANTOM_WORKER_HOST`
+`pathToPhantomScript` (required) - absolute path to the phantom script<br/>
+`timeout` - execution timeout in ms<br/>
+`numberOfWorkers` - number of phantomjs instances<br/>
+`host` - ip or hostname where to start listening phantomjs web service, default 127.0.0.1<br/>
+`portLeftBoundary` - don't specify if you just want to take any random free port<br/>
+`portRightBoundary` - don't specify if you just want to take any random free port<br/>
+`hostEnvVarName` - customize the name of the environment variable passed to the phantom script that specifies the worker host. defaults to `PHANTOM_WORKER_HOST`<br/>
 `portEnvVarName` - customize the name of the environment variable passed to the phantom script that specifies the worker port. defaults to `PHANTOM_WORKER_PORT`
 
 
