@@ -11,10 +11,12 @@ Running a script in phantom can soon become performance bottleneck when it comes
 ##First create a phantomjs script wrapped in webserver
 
 ```js
-//every worker gets unique port, get it from a readline
-var port = require("system").env['PHANTOM_WORKER_PORT'];
+//every worker gets unique port, get it from a process environment variables
+var system = require("system");
+var port = system.env['PHANTOM_WORKER_PORT'];
+var host = system.env['PHANTOM_WORKER_HOST'];
 
-require('webserver').create().listen('127.0.0.1:' + port, function (req, res) {
+require('webserver').create().listen(host + ':' + port, function (req, res) {
 	//standard phantomjs script which get input parametrs from request
 	var page = require('webpage').create();
 	page.open(JSON.parse(req.post).url, function(status) {
