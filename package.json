@@ -27,7 +27,7 @@
     "should": "5.0.1"
   },
   "scripts": {
-    "test": "mocha test/test.js"
+    "test": "mocha test/test.js --timeout 4000"
   },
   "main": "index.js",
   "license": "MIT"
