@@ -18,9 +18,11 @@
   },
   "dependencies": {
     "net-cluster": "0.0.2",
-    "phantomjs": "1.9.15",
     "portscanner": "1.0.0",
     "underscore": "1.8.2"
+  },
+  "optionalDependencies": {
+    "phantomjs": "1.9.15"
   },
   "devDependencies": {
     "mocha": "2.1.0",

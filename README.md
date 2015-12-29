@@ -23,7 +23,7 @@ require('webserver').create().listen(host + ':' + port, function (req, res) {
     var title = page.evaluate(function() {
 	    return document.title;
 	});
-	
+
 	//write the result to the response
 	res.statusCode = 200;
     res.write({ title: title });
@@ -56,8 +56,8 @@ phantom.start(function() {
 `portLeftBoundary` - don't specify if you just want to take any random free port<br/>
 `portRightBoundary` - don't specify if you just want to take any random free port<br/>
 `hostEnvVarName` - customize the name of the environment variable passed to the phantom script that specifies the worker host. defaults to `PHANTOM_WORKER_HOST`<br/>
-`portEnvVarName` - customize the name of the environment variable passed to the phantom script that specifies the worker port. defaults to `PHANTOM_WORKER_PORT`
-
+`portEnvVarName` - customize the name of the environment variable passed to the phantom script that specifies the worker port. defaults to `PHANTOM_WORKER_PORT`<br/>
+`phantomPath` - path to the phantomjs library. If not specified, this will use the version of phantom declared in the `optionalDependencies` in `package.json`
 
 
 ##License
