@@ -59,6 +59,7 @@ phantom.start(function() {
 `portEnvVarName` - customize the name of the environment variable passed to the phantom script that specifies the worker port. defaults to `PHANTOM_WORKER_PORT`<br/>
 `phantomPath` - path to the phantomjs library. If not specified, this will use the version of phantom declared in the `optionalDependencies` in `package.json`<br/>
 `proxy,proxy-type,proxy-auth` - see phantomjs arguments for proxy setting details
+`workerEnv` - object with additional environment variables passed to the phantom process
 
 ##phantomjs2
 This package includes phantomjs 1.9.x distribution. If you like to rather use latest phantomjs you can provide it in the phantomPath option.

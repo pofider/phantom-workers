@@ -178,4 +178,26 @@ describe("phantom workers", function () {
             });
         });
     });
+
+    it("should be able to provide custom worker env variables", function (done) {
+        phantomManager = new PhantomManager({
+            pathToPhantomScript: path.join(__dirname, "test-script", "env.js"),
+            workerEnv: {
+                "PHANTOM_TEST_ENV": "test"
+            },
+            numberOfWorkers: 1
+        });
+        phantomManager.start(function(err) {
+            if (err)
+                return done(err);
+
+            phantomManager.execute({}, function (err, res) {
+                if (err)
+                    return done(err);
+
+                res.value.should.be.eql('test');
+                done();
+            });
+        });
+    });
 });
