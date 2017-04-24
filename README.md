@@ -42,7 +42,11 @@ var phantom = require("phantom-workers")({
 	numberOfWorkers: 10
 });
 
-phantom.start(function() {
+phantom.start(function(startErr) {
+	if (startErr) {
+		return console.error('Error while starting workers:', startErr);
+	}
+
 	phantom.execute({ url: "https://jsreport.net" }, function(err, res) {
 		if (err) {
 			return console.error('Error while executing:', err);
