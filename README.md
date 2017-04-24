@@ -22,12 +22,14 @@ require('webserver').create().listen(host + ':' + port, function (req, res) {
 	page.open(JSON.parse(req.post).url, function(status) {
     var title = page.evaluate(function() {
 	    return document.title;
-	});
+		});
 
-	//write the result to the response
-	res.statusCode = 200;
-    res.write({ title: title });
-    res.close();
+		//write the result to the response
+		res.statusCode = 200;
+		res.setHeader('Content-Type', 'application/json');
+	  res.write(JSON.stringify({ title: title }));
+	  res.close();
+	});
 });
 
 ```
@@ -41,7 +43,11 @@ var phantom = require("phantom-workers")({
 });
 
 phantom.start(function() {
-	phantom.execute({ url: "http://jsreport.net" }, function(err, res) {
+	phantom.execute({ url: "https://jsreport.net" }, function(err, res) {
+		if (err) {
+			return console.error('Error while executing:', err);
+		}
+
 		console.log(res.title);
 	});
 });
