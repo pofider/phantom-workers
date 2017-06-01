@@ -200,4 +200,38 @@ describe("phantom workers", function () {
             });
         });
     });
+
+    it("should recycle phantom after the web server fails to receive the connection", function (done) {
+        phantomManager = new PhantomManager({
+            pathToPhantomScript: path.join(__dirname, "test-script", "recycling.js"),
+            numberOfWorkers: 1
+        });
+        phantomManager.start(function(err) {
+            if (err) 
+                return done(err);
+            
+            // every second request fails to receive connection and should cause recycling
+            phantomManager.execute({}, function (err, res) {
+                if (err)
+                    return done(err);
+
+                res.should.be.eql(1)                
+
+                // intentionally fails
+                phantomManager.execute({}, function (err, res) {
+                    if (!err)
+                        return done(new Error('Every second request should fail'));
+
+                    phantomManager.execute({}, function (err, res) {
+                         if (err)
+                            return done(err);
+
+                        // acumulator should get restarted     
+                        res.should.be.eql(1)                
+                        done();
+                    });
+                });
+            });
+        });
+    });
 });
