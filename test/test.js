@@ -202,6 +202,12 @@ describe("phantom workers", function () {
     });
 
     it("should recycle phantom after the web server fails to receive the connection", function (done) {
+        // request to phantomjs on LINUX with stopped web server timesout which causes the recycle anyway
+        // this tests only verifies WINDOWS behavior, on which the phantomjs with stopped server drops connections with ECONNREFUSED
+        if (process.platform !== 'win32') {
+            return done();
+        }
+        
         phantomManager = new PhantomManager({
             pathToPhantomScript: path.join(__dirname, "test-script", "recycling.js"),
             numberOfWorkers: 1
