@@ -17,10 +17,8 @@
     "url": "git@github.com:pofider/phantom-workers.git"
   },
   "dependencies": {
-    "net-cluster": "0.0.2",
-    "object-assign": "4.1.1",
-    "portscanner": "1.0.0",
-    "underscore": "1.8.2"
+    "lodash.find": "4.6.0",
+    "object-assign": "4.1.1"
   },
   "optionalDependencies": {
     "phantomjs": "1.9.15"
